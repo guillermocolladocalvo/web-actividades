@@ -1,0 +1,348 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* NAVBAR */
+
+nav {
+    background: linear-gradient(to right, #141e30, #243b55);
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER */
+
+nav a:hover {
+    color: #00bfff;
+
+    transform: scale(1.2);
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 50px;
+    color: #243b55;
+}
+
+/* MAIN */
+
+main {
+    padding: 40px;
+}
+
+main h2 {
+    color: #141e30;
+    font-size: 40px;
+}
+
+main p {
+    font-size: 22px;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #141e30;
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-top: 100px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 35px;
+    }
+
+    main h2 {
+        font-size: 30px;
+    }
+
+}
+
+/* CARRUSEL */
+
+/* CARRUSEL */
+
+.carousel {
+
+    width: 80%;
+
+    max-width: 1000px;
+
+    height: 350px;
+
+    margin: 40px auto;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+    position: relative;
+
+    background-color: white;
+}
+
+/* PISTA */
+
+.carousel-track {
+
+    display: flex;
+
+    width: calc(400px * 12);
+
+    animation: scroll 30s linear infinite;
+}
+
+/* IMÁGENES */
+
+.carousel-track img {
+
+    width: 350px;
+
+    height: 300px;
+
+    object-fit: contain;
+
+    padding: 20px;
+
+    background-color: white;
+}
+
+/* ANIMACIÓN */
+
+@keyframes scroll {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-400px * 6));
+    }
+}
+
+/* BOTONES */
+
+.prev,
+.next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background-color: rgba(0,0,0,0.5);
+
+    color: white;
+
+    border: none;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    font-size: 25px;
+
+    transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0,0,0,0.8);
+
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* TARJETAS */
+
+.card {
+
+    background-color: white;
+
+    padding: 30px;
+
+    margin: 30px auto;
+
+    border-radius: 20px;
+
+    width: 85%;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: scale(1.02);
+}
+
+/* TITULOS */
+
+.card h2 {
+
+    color: #243b55;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+
+    color: #141e30;
+
+    margin-top: 25px;
+}
+
+/* TEXTO */
+
+.card p,
+.card li {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+/* IMAGENES */
+
+.actividad-img {
+
+    width: 80%;
+
+    max-width: 700px;
+
+    display: block;
+
+    margin: 25px auto;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* COMANDOS */
+
+code {
+
+    display: block;
+
+    background-color: #111;
+
+    color: #00ff88;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+}
+
+/* LISTAS */
+
+.card ul {
+
+    margin-top: 20px;
+
+    padding-left: 30px;
+}
+
+.card li {
+
+    margin-bottom: 10px;
+}
+
+/* HOVER SUAVE TARJETAS */
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TITULOS ACTIVIDADES */
+
+.card h2 {
+
+    text-align: center;
+
+    font-size: 42px;
+}
+
+/* SUBTITULOS */
+
+.card h3 {
+
+    font-size: 28px;
+}
+
+/* RESPONSIVE ACTIVIDADES */
+
+@media (max-width: 768px) {
+
+    .card {
+
+        width: 95%;
+
+        padding: 20px;
+    }
+
+    .actividad-img {
+
+        width: 100%;
+    }
+
+    .card h2 {
+
+        font-size: 30px;
+    }
+
+}
