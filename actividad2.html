@@ -15,66 +15,309 @@
 
 <body>
 
-<nav>
+    <!-- NAVBAR -->
 
-    <a href="index.html">Inicio</a>
-    <a href="actividad1.html">Actividad 1</a>
-    <a href="actividad2.html">Actividad 2</a>
-    <a href="actividad3.html">Actividad 3</a>
-    <a href="actividad4.html">Actividad 4</a>
-    <a href="actividad5.html">Actividad 5</a>
-    <a href="actividad6.html">Actividad 6</a>
+    <nav>
 
-</nav>
+        <a href="index.html">Inicio</a>
 
-<main>
+        <a href="actividad1.html">Actividad 1</a>
 
-    <div class="card">
+        <a href="actividad2.html">Actividad 2</a>
 
-        <h2>Actividad 2 - Planificación de prácticas</h2>
+        <a href="actividad3.html">Actividad 3</a>
 
-        <p>
-            En esta actividad realizamos la planificación de la red y la
-            configuración inicial de OCS Inventory.
-        </p>
+        <a href="actividad4.html">Actividad 4</a>
 
-        <img src="img/ocsinventory.png" class="actividad-img">
+        <a href="actividad5.html">Actividad 5</a>
 
-        <h3>Tareas realizadas</h3>
+        <a href="actividad6.html">Actividad 6</a>
 
-        <ul>
+    </nav>
 
-            <li>Diseño de topología</li>
+    <!-- HEADER -->
 
-            <li>Configuración de VLANs</li>
+    <header>
 
-            <li>Configuración DHCP</li>
+        <h1>Actividad 2 - Diseño y Configuración de Red</h1>
 
-            <li>Instalación OCS Inventory</li>
+    </header>
 
-            <li>Configuración Apache</li>
+    <main>
 
-        </ul>
+        <!-- INTRODUCCIÓN -->
 
-        <h3>Comandos utilizados</h3>
+        <div class="card">
 
-        <code>
-sudo apt update
-sudo apt upgrade -y
-sudo apt install apache2
+            <h2>Introducción</h2>
+
+            <p>
+                En esta actividad se realizó el diseño lógico
+                y estructural de la red corporativa utilizando
+                Cisco Packet Tracer y Ubuntu Server.
+            </p>
+
+            <p>
+                También se configuraron VLANs,
+                direccionamiento IP,
+                DHCP y el sistema de inventariado
+                OCS Inventory NG.
+            </p>
+
+            <img src="img/topologia.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- SUBREDES -->
+
+        <div class="card">
+
+            <h2>Esquema de Subredes</h2>
+
+            <p>
+                La red principal utilizada fue:
+            </p>
+
+            <code>
+172.16.0.0/16
+            </code>
+
+            <p>
+                Para segmentar la infraestructura
+                se aplicó subnetting utilizando máscara /20.
+            </p>
+
+            <p>
+                Esto permitió dividir la red
+                en varias VLANs independientes.
+            </p>
+
+            <ul>
+
+                <li>VLAN1 → 172.16.0.0/20</li>
+
+                <li>VLAN2 → 172.16.16.0/20</li>
+
+                <li>VLAN3 → 172.16.32.0/20</li>
+
+            </ul>
+
+            <img src="img/equema de subredes.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- TOPOLOGÍA -->
+
+        <div class="card">
+
+            <h2>Diseño de Topología</h2>
+
+            <p>
+                La topología fue diseñada
+                utilizando Cisco Packet Tracer.
+            </p>
+
+            <p>
+                Se utilizaron:
+            </p>
+
+            <ul>
+
+                <li>Router Cisco ISR4331</li>
+
+                <li>Switches Cisco 2960</li>
+
+                <li>Servidores Ubuntu</li>
+
+                <li>Equipos cliente Windows</li>
+
+            </ul>
+
+            <img src="img/topologia.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- DHCP -->
+
+        <div class="card">
+
+            <h2>Configuración DHCP</h2>
+
+            <p>
+                Se configuró DHCP dinámico
+                para asignar automáticamente
+                direcciones IP a los equipos cliente.
+            </p>
+
+            <p>
+                Para validar las concesiones DHCP
+                se utilizó el siguiente comando:
+            </p>
+
+            <code>
+show ip dhcp binding
+            </code>
+
+            <img src="img/validarDHCP.png" class="actividad-img">
+
+        </div>
+
+        <!-- PING -->
+
+        <div class="card">
+
+            <h2>Pruebas de Conectividad</h2>
+
+            <p>
+                Después de configurar las VLANs,
+                se realizaron pruebas ICMP
+                entre distintos segmentos de red.
+            </p>
+
+            <p>
+                La comunicación entre VLANs
+                fue exitosa.
+            </p>
+
+            <img src="img/pingVLANS.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- OCS -->
+
+        <div class="card">
+
+            <h2>Instalación de OCS Inventory NG</h2>
+
+            <p>
+                Posteriormente se desplegó
+                el sistema de inventariado
+                OCS Inventory NG sobre Ubuntu Server.
+            </p>
+
+            <p>
+                Primero se actualizaron
+                los paquetes del sistema:
+            </p>
+
+            <code>
+sudo apt update && sudo apt upgrade -y
+            </code>
+
+            <p>
+                Después se añadieron
+                los repositorios oficiales
+                de OCS Inventory.
+            </p>
+
+            <code>
+sudo apt install ocsinventory-server -y
+            </code>
+
+            <img src="img/inicializacionWEB.png" class="actividad-img-large">
+
+            <p>
+                También se habilitaron
+                módulos necesarios de Apache:
+            </p>
+
+            <code>
+sudo a2enmod proxy proxy_http rewrite
+            </code>
+
+            <code>
 sudo systemctl restart apache2
-        </code>
+            </code>
 
-    </div>
+            <img src="img/inicializacionWEB2.png" class="actividad-img-large">
 
-</main>
+        </div>
 
-<footer>
+        <!-- AGENTE -->
 
-    <p>Proyecto Actividades Web - CampusFP</p>
+        <div class="card">
 
-</footer>
+            <h2>Configuración del Agente Cliente</h2>
 
+            <p>
+                En el equipo Windows 11
+                se instaló el agente OCS Inventory
+                para enviar información
+                del sistema al servidor central.
+            </p>
+
+            <img src="img/agenteCliente.png" class="actividad-img">
+
+            <p>
+                Durante la configuración
+                se especificó la URL del servidor:
+            </p>
+
+            <code>
+http://192.168.1.x/ocsreports
+            </code>
+
+            <img src="img/serverURL.png" class="actividad-img">
+
+            <p>
+                También se asignó
+                una etiqueta identificativa
+                para registrar correctamente
+                el dispositivo en el inventario.
+            </p>
+
+        </div>
+
+        <!-- AUDITORÍA -->
+
+        <div class="card">
+
+            <h2>Auditoría Final</h2>
+
+            <p>
+                Finalmente se accedió
+                al panel web de OCS Inventory
+                para comprobar el correcto registro
+                del equipo cliente.
+            </p>
+
+            <p>
+                El sistema detectó correctamente
+                el equipo Windows 11 Pro,
+                validando el funcionamiento
+                de la monitorización centralizada.
+            </p>
+
+            <img src="img/Captura.png" class="actividad-img-large">
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <p>© CampusFP 2026 - Proyecto ASIR</p>
+
+            <img src="img/campusfp.png">
+
+        </div>
+
+    </footer>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+
+<button id="btnTop" onclick="volverArriba()">
+
+    ↑
+
+</button>
+
+<script src="js/script.js"></script>
+    
 </body>
 
 </html>

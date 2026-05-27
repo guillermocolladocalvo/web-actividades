@@ -15,57 +15,375 @@
 
 <body>
 
-<nav>
+    <!-- NAVBAR -->
 
-    <a href="index.html">Inicio</a>
-    <a href="actividad1.html">Actividad 1</a>
-    <a href="actividad2.html">Actividad 2</a>
-    <a href="actividad3.html">Actividad 3</a>
-    <a href="actividad4.html">Actividad 4</a>
-    <a href="actividad5.html">Actividad 5</a>
-    <a href="actividad6.html">Actividad 6</a>
+    <nav>
 
-</nav>
+        <a href="index.html">Inicio</a>
 
-<main>
+        <a href="actividad1.html">Actividad 1</a>
 
-    <div class="card">
+        <a href="actividad2.html">Actividad 2</a>
 
-        <h2>Actividad 6 - Investigación NAS</h2>
+        <a href="actividad3.html">Actividad 3</a>
 
-        <p>
-            Investigamos diferentes soluciones NAS y sistemas
-            de almacenamiento en red.
-        </p>
+        <a href="actividad4.html">Actividad 4</a>
 
-        <img src="img/nas.webp" class="actividad-img">
+        <a href="actividad5.html">Actividad 5</a>
 
-        <h3>Aspectos investigados</h3>
+        <a href="actividad6.html">Actividad 6</a>
 
-        <ul>
+    </nav>
 
-            <li>Sistemas NAS</li>
+    <!-- HEADER -->
 
-            <li>Snapshots</li>
+    <header>
 
-            <li>Backups</li>
+        <h1>Actividad 6 - Servicios NAS y Copias de Seguridad</h1>
 
-            <li>Replicación remota</li>
+    </header>
 
-            <li>Virtualización</li>
+    <main>
 
-        </ul>
+        <!-- INTRODUCCIÓN -->
 
-    </div>
+        <div class="card">
 
-</main>
+            <h2>Introducción</h2>
 
-<footer>
+            <p>
+                En esta actividad se analizaron distintas soluciones
+                NAS de código abierto orientadas al almacenamiento,
+                copias de seguridad y administración de archivos
+                en entornos corporativos.
+            </p>
 
-    <p>Proyecto Actividades Web - CampusFP</p>
+            <p>
+                También se estudiaron protocolos seguros FTPS
+                y estrategias de respaldo para garantizar
+                la integridad de la información.
+            </p>
 
-</footer>
+            <img src="img/nas.webp" class="actividad-img">
 
+        </div>
+
+        <!-- SISTEMAS NAS -->
+
+        <div class="card">
+
+            <h2>Evaluación de Sistemas NAS</h2>
+
+            <p>
+                Se analizaron diferentes sistemas operativos NAS
+                utilizados en infraestructuras profesionales.
+            </p>
+
+            <p>
+                La elección depende del hardware disponible,
+                necesidades empresariales
+                y experiencia técnica del administrador.
+            </p>
+
+            <ul>
+
+                <li>TrueNAS SCALE</li>
+
+                <li>OpenMediaVault</li>
+
+                <li>Unraid</li>
+
+            </ul>
+
+        </div>
+
+        <!-- TRUENAS -->
+
+        <div class="card">
+
+            <h2>TrueNAS SCALE</h2>
+
+            <p>
+                TrueNAS SCALE destaca por utilizar
+                el sistema de archivos ZFS,
+                ofreciendo alta integridad de datos,
+                snapshots y replicación avanzada.
+            </p>
+
+            <p>
+                Es una solución muy utilizada
+                en entornos empresariales
+                donde la seguridad y recuperación
+                de información son prioritarias.
+            </p>
+
+        </div>
+
+        <!-- OMV -->
+
+        <div class="card">
+
+            <h2>OpenMediaVault</h2>
+
+            <p>
+                OpenMediaVault está basado en Debian
+                y ofrece una administración sencilla
+                mediante interfaz web.
+            </p>
+
+            <p>
+                Es ideal para equipos modestos
+                y laboratorios educativos.
+            </p>
+
+            <p>
+                Además permite integrar:
+            </p>
+
+            <ul>
+
+                <li>RSync</li>
+
+                <li>SMB</li>
+
+                <li>FTP</li>
+
+                <li>Plugins adicionales</li>
+
+            </ul>
+
+        </div>
+
+        <!-- UNRAID -->
+
+        <div class="card">
+
+            <h2>Unraid</h2>
+
+            <p>
+                Unraid permite utilizar discos
+                de diferentes capacidades
+                dentro del mismo sistema.
+            </p>
+
+            <p>
+                También incorpora virtualización,
+                Docker y servicios multimedia,
+                siendo muy popular en homelabs.
+            </p>
+
+        </div>
+
+        <!-- TABLA -->
+
+        <div class="card">
+
+            <h2>Tabla Comparativa</h2>
+
+            <p>
+                Se realizó una comparativa
+                entre las distintas plataformas NAS
+                teniendo en cuenta:
+            </p>
+
+            <ul>
+
+                <li>Rendimiento</li>
+
+                <li>Escalabilidad</li>
+
+                <li>Facilidad de uso</li>
+
+                <li>Compatibilidad</li>
+
+                <li>Seguridad</li>
+
+            </ul>
+
+            <img src="img/tablacomparativa.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- RAID -->
+
+        <div class="card">
+
+            <h2>Importancia de las Copias de Seguridad</h2>
+
+            <p>
+                RAID no debe considerarse
+                una copia de seguridad.
+            </p>
+
+            <p>
+                Aunque permite mantener
+                disponibilidad de servicio,
+                no protege frente a:
+            </p>
+
+            <ul>
+
+                <li>Borrados accidentales</li>
+
+                <li>Ransomware</li>
+
+                <li>Corrupción de datos</li>
+
+                <li>Errores humanos</li>
+
+            </ul>
+
+            <p>
+                Por ello se recomienda utilizar:
+            </p>
+
+            <ul>
+
+                <li>Snapshots</li>
+
+                <li>Replicación remota</li>
+
+                <li>Backups externos</li>
+
+            </ul>
+
+        </div>
+
+        <!-- FRECUENCIAS -->
+
+        <div class="card">
+
+            <h2>Planificación de Backups</h2>
+
+            <p>
+                Se definió una estrategia
+                de copias de seguridad periódicas.
+            </p>
+
+            <ul>
+
+                <li>Snapshots horarios</li>
+
+                <li>Replicación nocturna</li>
+
+                <li>Backups semanales</li>
+
+                <li>Copias offline mensuales</li>
+
+            </ul>
+
+        </div>
+
+        <!-- FTPS -->
+
+        <div class="card">
+
+            <h2>FTPS y Seguridad</h2>
+
+            <p>
+                FTPS consiste en FTP protegido
+                mediante cifrado TLS/SSL.
+            </p>
+
+            <p>
+                Este protocolo evita
+                el envío de credenciales
+                en texto plano.
+            </p>
+
+            <p>
+                Para un funcionamiento correcto
+                se recomienda:
+            </p>
+
+            <ul>
+
+                <li>Utilizar TLS actualizado</li>
+
+                <li>Configurar puertos pasivos</li>
+
+                <li>Restringir permisos</li>
+
+                <li>Monitorizar logs</li>
+
+            </ul>
+
+        </div>
+
+        <!-- CLIENTES -->
+
+        <div class="card">
+
+            <h2>Clientes FTP Analizados</h2>
+
+            <p>
+                Se estudiaron diferentes clientes
+                de transferencia FTP y FTPS.
+            </p>
+
+            <ul>
+
+                <li>FileZilla Client</li>
+
+                <li>WinSCP</li>
+
+                <li>Cyberduck</li>
+
+            </ul>
+
+            <p>
+                FileZilla destacó por su compatibilidad
+                multiplataforma y facilidad de uso.
+            </p>
+
+        </div>
+
+        <!-- CONCLUSIÓN -->
+
+        <div class="card">
+
+            <h2>Conclusión</h2>
+
+            <p>
+                Gracias a esta actividad
+                se comprendió la importancia
+                de los sistemas NAS
+                y las estrategias de backup
+                en entornos empresariales.
+            </p>
+
+            <p>
+                También se analizaron protocolos seguros
+                de transferencia de archivos
+                y buenas prácticas de administración.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <p>© CampusFP 2026 - Proyecto ASIR</p>
+
+            <img src="img/campusfp.png">
+
+        </div>
+
+    </footer>
+<!-- BOTÓN VOLVER ARRIBA -->
+
+<button id="btnTop" onclick="volverArriba()">
+
+    ↑
+
+</button>
+
+<script src="js/script.js"></script>
 </body>
 
 </html>

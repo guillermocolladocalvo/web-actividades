@@ -15,55 +15,356 @@
 
 <body>
 
-<nav>
+    <!-- NAVBAR -->
 
-    <a href="index.html">Inicio</a>
-    <a href="actividad1.html">Actividad 1</a>
-    <a href="actividad2.html">Actividad 2</a>
-    <a href="actividad3.html">Actividad 3</a>
-    <a href="actividad4.html">Actividad 4</a>
-    <a href="actividad5.html">Actividad 5</a>
-    <a href="actividad6.html">Actividad 6</a>
+    <nav>
 
-</nav>
+        <a href="index.html">Inicio</a>
 
-<main>
+        <a href="actividad1.html">Actividad 1</a>
 
-    <div class="card">
+        <a href="actividad2.html">Actividad 2</a>
 
-        <h2>Actividad 4 - Configuración de dispositivos de red</h2>
+        <a href="actividad3.html">Actividad 3</a>
+
+        <a href="actividad4.html">Actividad 4</a>
+
+        <a href="actividad5.html">Actividad 5</a>
+
+        <a href="actividad6.html">Actividad 6</a>
+
+    </nav>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>Actividad 4 - Implementación Física de VLANs</h1>
 
         <p>
-            Configuramos switches y dispositivos de red mediante
-            interfaz web y VLANs.
+            Configuración física de infraestructura
+            utilizando Switch TP-Link y Router MikroTik.
         </p>
 
-        <img src="img/mikrotik.jpg" class="actividad-img">
+    </header>
 
-        <h3>Configuraciones realizadas</h3>
+    <main>
 
-        <ul>
+        <!-- INTRODUCCIÓN -->
 
-            <li>Configuración IP</li>
+        <div class="card">
 
-            <li>Configuración VLAN</li>
+            <h2>Introducción a la implementación física</h2>
 
-            <li>Asignación de puertos</li>
+            <p>
+                Una vez validada la topología lógica
+                mediante simulación,
+                se procedió al despliegue físico
+                de la infraestructura de red
+                en el laboratorio.
+            </p>
 
-            <li>Pruebas de conectividad</li>
+            <p>
+                El objetivo principal consistió
+                en segmentar la red mediante VLANs,
+                establecer enlaces troncales 802.1Q
+                y permitir el enrutamiento inter-VLAN
+                mediante un router MikroTik.
+            </p>
 
-        </ul>
+            <p>
+                Para ello se utilizaron:
+            </p>
 
-    </div>
+            <ul>
 
-</main>
+                <li>Switch TP-Link SG3210</li>
 
-<footer>
+                <li>Router MikroTik hEX S</li>
 
-    <p>Proyecto Actividades Web - CampusFP</p>
+                <li>WinBox</li>
 
-</footer>
+                <li>VLANs 802.1Q</li>
 
+                <li>DHCP dinámico</li>
+
+            </ul>
+
+        </div>
+
+        <!-- AUDITORÍA HOST -->
+
+        <div class="card">
+
+            <h2>Auditoría inicial del host</h2>
+
+            <p>
+                Antes de acceder al switch TP-Link,
+                se verificó la configuración IP
+                del equipo cliente mediante consola Windows.
+            </p>
+
+            <code>
+IPCONFIG
+            </code>
+
+            <p>
+                El sistema devolvió:
+            </p>
+
+            <ul>
+
+                <li>IP: 192.168.0.2</li>
+
+                <li>Máscara: 255.255.255.0</li>
+
+                <li>Gateway: 192.168.0.1</li>
+
+            </ul>
+
+            <img src="img/Imagen1.png" class="actividad-img">
+
+        </div>
+
+        <!-- LOGIN SWITCH -->
+
+        <div class="card">
+
+            <h2>Acceso al panel TP-Link</h2>
+
+            <p>
+                Posteriormente se accedió
+                al entorno web de administración
+                del switch TP-Link SG3210.
+            </p>
+
+            <code>
+http://192.168.0.1
+            </code>
+
+            <p>
+                Se utilizaron credenciales
+                de administrador para acceder
+                al panel de configuración.
+            </p>
+
+            <img src="img/Imagen2.png" class="actividad-img">
+
+        </div>
+
+        <!-- VLAN TP LINK -->
+
+        <div class="card">
+
+            <h2>Creación de VLAN en TP-Link</h2>
+
+            <p>
+                Desde el apartado VLAN Config
+                se creó la VLAN 40
+                asociada al departamento CARLOS.
+            </p>
+
+            <p>
+                Se configuraron:
+            </p>
+
+            <ul>
+
+                <li>Puertos Untagged</li>
+
+                <li>Puertos Tagged</li>
+
+                <li>Enlaces troncales</li>
+
+            </ul>
+
+            <img src="img/Imagen3.png" class="actividad-img">
+
+            <img src="img/Imagen4.png" class="actividad-img">
+
+        </div>
+
+        <!-- PVID -->
+
+        <div class="card">
+
+            <h2>Configuración PVID</h2>
+
+            <p>
+                Después se verificó
+                la correcta asignación
+                del PVID 40
+                sobre los puertos configurados.
+            </p>
+
+            <p>
+                También se activó
+                el control Ingress Checking
+                para asegurar
+                el aislamiento de tráfico.
+            </p>
+
+            <img src="img/Imagen5.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- WINBOX -->
+
+        <div class="card">
+
+            <h2>Configuración de VLAN en MikroTik</h2>
+
+            <p>
+                Utilizando WinBox
+                se creó una interfaz virtual VLAN 40
+                dentro del router MikroTik.
+            </p>
+
+            <p>
+                Esta interfaz se asoció
+                al bridge principal bridgeLocal.
+            </p>
+
+            <img src="img/Imagen6.png" class="actividad-img">
+
+        </div>
+
+        <!-- IP GATEWAY -->
+
+        <div class="card">
+
+            <h2>Asignación de dirección IP</h2>
+
+            <p>
+                Posteriormente se asignó
+                la dirección IP estática
+                que actuaría como gateway
+                de la VLAN 40.
+            </p>
+
+            <code>
+172.16.48.1/20
+            </code>
+
+            <p>
+                Esta dirección permitiría
+                el acceso entre segmentos
+                y la salida de los clientes.
+            </p>
+
+            <img src="img/Imagen7.png" class="actividad-img">
+
+        </div>
+
+        <!-- DHCP -->
+
+        <div class="card">
+
+            <h2>Configuración del servidor DHCP</h2>
+
+            <p>
+                Se desplegó un servidor DHCP
+                sobre la interfaz vlan40
+                utilizando el asistente DHCP Setup.
+            </p>
+
+            <p>
+                El servidor entregaría automáticamente:
+            </p>
+
+            <ul>
+
+                <li>Direcciones IP</li>
+
+                <li>Máscara de subred</li>
+
+                <li>Gateway</li>
+
+                <li>DNS</li>
+
+            </ul>
+
+            <img src="img/Imagen8.png" class="actividad-img">
+
+            <img src="img/Imagen9.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- BRIDGE -->
+
+        <div class="card">
+
+            <h2>Asociación VLAN al Bridge</h2>
+
+            <p>
+                Finalmente se añadió
+                la VLAN 40
+                al bridge principal del MikroTik
+                para permitir
+                el etiquetado correcto
+                del tráfico troncal.
+            </p>
+
+            <p>
+                También se asociaron
+                las interfaces tagged
+                correspondientes al puerto ether3.
+            </p>
+
+            <img src="img/Imagen10.png" class="actividad-img-large">
+
+        </div>
+
+        <!-- CONCLUSIÓN -->
+
+        <div class="card">
+
+            <h2>Conclusión</h2>
+
+            <p>
+                Con esta implementación física
+                se consiguió desplegar
+                una infraestructura VLAN funcional
+                completamente operativa
+                sobre hardware real.
+            </p>
+
+            <p>
+                La actividad permitió comprender
+                el funcionamiento práctico
+                de switching,
+                etiquetado 802.1Q,
+                DHCP dinámico
+                y enrutamiento inter-VLAN.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <p>© CampusFP 2026 - Proyecto ASIR</p>
+
+            <img src="img/campusfp.png">
+
+        </div>
+
+    </footer>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+
+<button id="btnTop" onclick="volverArriba()">
+
+    ↑
+
+</button>
+
+<script src="js/script.js"></script>
 </body>
 
 </html>
