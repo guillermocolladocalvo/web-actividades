@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Actividad 5</title>
-
     <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 <body>
-
 <nav>
-
     <a href="index.html">Inicio</a>
     <a href="actividad1.html">Actividad 1</a>
     <a href="actividad2.html">Actividad 2</a>
@@ -24,53 +15,239 @@
     <a href="actividad4.html">Actividad 4</a>
     <a href="actividad5.html">Actividad 5</a>
     <a href="actividad6.html">Actividad 6</a>
-
 </nav>
-
+<header>
+    <h1>Actividad 5 - Despliegue de Servicios Web y FTP</h1>
+</header>
 <main>
-
     <div class="card">
-
-        <h2>Actividad 5 - Servicios WEB y FTP</h2>
-
+        <h2>Introducción</h2>
         <p>
-            Instalamos y configuramos Apache2 y FTP en Ubuntu Server.
+            En esta actividad se configuró el servidor Dell Wyse
+            como un sistema multipropósito capaz de ofrecer
+            servicios web y transferencia de archivos.
         </p>
-
-        <img src="img/html.png" class="actividad-img">
-
-        <h3>Servicios configurados</h3>
-
+        <p>
+            Para ello se utilizaron Apache2,
+            vsftpd y el firewall UFW de Ubuntu Server.
+        </p>
+    </div>
+    <div class="card">
+        <h2>Instalación de Apache2</h2>
+        <p>
+            El primer paso consistió en instalar
+            el servidor web Apache2 utilizando
+            el gestor de paquetes APT.
+        </p>
+        <p>
+            Antes de instalar los paquetes,
+            se realizó una limpieza del sistema
+            para evitar conflictos con instalaciones previas.
+        </p>
+        <code>
+sudo apt autoremove -y
+        </code>
+        <code>
+sudo apt install apache2 -y
+        </code>
+        <img src="img/act5_intro.png" class="actividad-img-large">
+        <img src="img/act5.1_intro.png" class="actividad-img-large">
+    </div>
+    <div class="card">
+        <h2>Asignación de permisos web</h2>
+        <p>
+            Por defecto, la carpeta web de Apache
+            pertenece al usuario administrador.
+        </p>
+        <p>
+            Para permitir la subida y modificación
+            de archivos desde FTP,
+            se modificaron los permisos
+            del directorio /var/www/html.
+        </p>
+        <code>
+sudo chown -R practicas:www-data /var/www/html
+        </code>
+        <code>
+sudo chmod -R 775 /var/www/html
+        </code>
+        <img src="img/act5_permisos.png" class="actividad-img">
+    </div>
+    <div class="card">
+        <h2>Instalación de VSFTPD</h2>
+        <p>
+            Posteriormente se instaló
+            el servidor FTP vsftpd
+            (Very Secure FTP Daemon).
+        </p>
+        <p>
+            Este servicio permite transferir
+            archivos entre cliente y servidor
+            de forma ligera y eficiente.
+        </p>
+        <code>
+sudo apt install vsftpd -y
+        </code>
+        <img src="img/act5_vsftpd.png" class="actividad-img">
+    </div>
+    <div class="card">
+        <h2>Configuración de seguridad FTP</h2>
+        <p>
+            El archivo principal de configuración
+            fue editado utilizando Nano:
+        </p>
+        <code>
+sudo nano /etc/vsftpd.conf
+        </code>
+        <p>
+            Durante la configuración:
+        </p>
         <ul>
 
-            <li>Servidor Apache2</li>
+            <li>Se deshabilitó el acceso anónimo</li>
 
-            <li>Servidor FTP</li>
+            <li>Se habilitó acceso a usuarios locales</li>
 
-            <li>Configuración UFW</li>
+            <li>Se permitió escritura</li>
 
-            <li>Configuración permisos</li>
+            <li>Se activó el aislamiento chroot</li>
 
         </ul>
+        <p>
+            También se añadió:
+        </p>
+        <code>
+allow_writeable_chroot=YES
+        </code>
+        <p>
+            para evitar errores de conexión FTP.
+        </p>
+    </div>
+    <div class="card">
+        <h2>Creación del enlace simbólico</h2>
+        <p>
+            Se creó un enlace simbólico
+            entre la carpeta web de Apache
+            y el directorio del usuario local.
+        </p>
+        <p>
+            Esto permitió subir archivos web
+            cómodamente mediante FTP.
+        </p>
+        <code>
+ln -s /var/www/html /home/practicas/paginas_web
+        </code>
+        <img src="img/act5_symlink.png" class="actividad-img">
+    </div>
+    <div class="card">
+        <h2>Configuración de puertos pasivos</h2>
+        <p>
+            FTP utiliza puertos dinámicos
+            en modo pasivo para transferencias.
+        </p>
+        <p>
+            Por ello se configuró
+            un rango de puertos específico
+            dentro del archivo vsftpd.conf.
+        </p>
+        <code>
+pasv_min_port=40000
+pasv_max_port=50000
+        </code>
+        <p>
+            Finalmente se reinició el servicio:
+        </p>
+        <code>
+sudo systemctl restart vsftpd
+        </code>
+        <img src="img/act5_pasivo.png" class="actividad-img">
+    </div>
+    <div class="card">
+        <h2>Configuración del firewall UFW</h2>
+        <p>
+            Se activó el firewall UFW
+            permitiendo únicamente
+            los puertos necesarios.
+        </p>
+        <ul>
+            <li>Apache (80)</li>
+            <li>SSH (22)</li>
+            <li>FTP (20 y 21)</li>
+            <li>Puertos pasivos FTP</li>
+        </ul>
+        <code>
+sudo ufw allow Apache
+sudo ufw allow ssh
+sudo ufw allow 20/tcp
+sudo ufw allow 21/tcp
+sudo ufw allow 40000:50000/tcp
+sudo ufw enable
+        </code>
+        <img src="img/act5_ufw.png" class="actividad-img-large">
+    </div>
+    <div class="card">
+        <h2>Conexión FTP con FileZilla</h2>
+        <p>
+            Desde un equipo cliente
+            se realizó la conexión remota
+            utilizando FileZilla Client.
+        </p>
+        <p>
+            Se introdujeron:
+        </p>
+        <ul>
+            <li>IP del servidor Wyse</li>
+            <li>Usuario practicas</li>
+            <li>Contraseña</li>
+            <li>Puerto 21</li>
+        </ul>
+        <p>
+            La conexión fue exitosa
+            y se visualizaron correctamente
+            los directorios remotos.
+        </p>
+        <img src="img/act5_filezilla.png" class="actividad-img-large">
+    </div>
+    <div class="card">
+        <h2>Validación del servidor web</h2>
+        <p>
+            Finalmente se comprobó
+            el correcto funcionamiento
+            del servidor Apache
+            desde otro equipo de la red local.
+        </p>
 
-        <h3>Comandos utilizados</h3>
+        <p>
+            Se accedió mediante navegador
+            introduciendo la IP estática
+            del servidor Ubuntu.
+        </p>
 
         <code>
-sudo apt install apache2
-sudo apt install vsftpd
-sudo ufw allow Apache
+http://192.168.1.63
         </code>
+
+        <p>
+            El servidor respondió correctamente
+            mostrando la página por defecto
+            de Apache2.
+        </p>
+
+        <img src="img/act5_apachefinal.png" class="actividad-img-large">
 
     </div>
 
 </main>
-
 <footer>
 
-    <p>Proyecto Actividades Web - CampusFP</p>
+    <div class="footer-content">
+
+        <p>© CampusFP 2026 - Proyecto ASIR</p>
+
+        <img src="img/campusfp.png">
+
+    </div>
 
 </footer>
-
 </body>
-
 </html>

@@ -253,9 +253,9 @@ footer {
 
 .actividad-img {
 
-    width: 80%;
+    width: 55%;
 
-    max-width: 700px;
+    max-width: 500px;
 
     display: block;
 
@@ -264,6 +264,8 @@ footer {
     border-radius: 15px;
 
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
 }
 
 /* COMANDOS */
@@ -345,4 +347,155 @@ code {
         font-size: 30px;
     }
 
+}
+
+/* VIDEOS */
+
+video {
+    width: 80%;
+    max-width: 700px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* GRID TARJETAS INDEX */
+
+.cards-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+/* TARJETAS CLICKABLES */
+
+.home-card {
+
+    background-color: white;
+
+    width: 260px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #141e30;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.home-card:hover {
+
+    transform: translateY(-10px) scale(1.03);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.home-card h3 {
+
+    margin-bottom: 15px;
+
+    color: #243b55;
+}
+
+.actividad-img:hover {
+
+    transform: scale(1.03);
+}
+
+/* FOOTER */
+
+footer {
+
+    background-color: #141e30;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 100px;
+}
+
+/* CONTENIDO FOOTER */
+
+.footer-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+/* TEXTO FOOTER */
+
+.footer-content p {
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+/* LOGO CAMPUS FP */
+
+.footer-content img {
+
+    width: 180px;
+
+    max-width: 80%;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+.footer-content img {
+
+    width: 140px;
+
+    opacity: 0.9;
+
+    transition: 0.3s;
+}
+
+.footer-content img:hover {
+
+    transform: scale(1.05);
+
+    opacity: 1;
+}
+
+.video-tester {
+
+    width: 70%;
+
+    max-width: 700px;
+
+    display: block;
+
+    margin: 30px auto;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }

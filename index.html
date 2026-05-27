@@ -2,66 +2,219 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Web</title>
+
+    <title>Proyecto Actividades Web</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
+
     <nav>
+
         <a href="index.html">Inicio</a>
+
         <a href="actividad1.html">Actividad 1</a>
+
         <a href="actividad2.html">Actividad 2</a>
+
         <a href="actividad3.html">Actividad 3</a>
+
         <a href="actividad4.html">Actividad 4</a>
+
         <a href="actividad5.html">Actividad 5</a>
+
         <a href="actividad6.html">Actividad 6</a>
+
     </nav>
 
-<header>
+    <!-- HEADER -->
 
-    <h1>PROYECTO ACTIVIDADES WEB</h1>
+    <header>
 
-    <div class="carousel">
+        <h1>PROYECTO ACTIVIDADES WEB</h1>
 
-    <div class="carousel-track">
+        <!-- CARRUSEL -->
 
-    <img src="img/mikrotik.jpg">
-    <img src="img/fibraoptica.jpg">
-    <img src="img/cat8.webp">
-    <img src="img/html.png">
-    <img src="img/nas.webp">
-    <img src="img/ocsinventory.png">
+        <div class="carousel">
 
-    <!-- DUPLICADAS -->
+            <div class="carousel-track">
 
-    <img src="img/mikrotik.jpg">
-    <img src="img/fibraoptica.jpg">
-    <img src="img/cat8.webp">
-    <img src="img/html.png">
-    <img src="img/nas.webp">
-    <img src="img/ocsinventory.png">
+                <!-- IMÁGENES -->
 
+                <img src="img/fibraoptica.jpg">
 
-    </div>
+                <img src="img/cat8.webp">
 
-</div>
+                <img src="img/html.png">
 
-</header>
+                <img src="img/nas.webp">
+
+                <img src="img/ocsinventory.png">
+
+                <img src="img/mikrotik.jpg">
+
+                <!-- DUPLICADAS PARA BUCLE -->
+
+                <img src="img/fibraoptica.jpg">
+
+                <img src="img/cat8.webp">
+
+                <img src="img/html.png">
+
+                <img src="img/nas.webp">
+
+                <img src="img/ocsinventory.png">
+
+                <img src="img/mikrotik.jpg">
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
 
     <main>
+
         <h2>Página principal</h2>
-        <p>Bienvenidos a nuestra web.</p>
+
+        <p>
+            En esta página web se recopilan todas las actividades
+            realizadas durante el proyecto de implantación y configuración
+            de servicios en red utilizando Ubuntu Server, Apache,
+            FTP, VLANs y OCS Inventory.
+        </p>
+
+        <!-- TARJETAS -->
+
+        <div class="cards-container">
+
+            <a href="actividad1.html" class="home-card">
+
+                <h3>Actividad 1</h3>
+
+                <p>
+                    Preparación del entorno,
+                    instalación de Ubuntu Server
+                    y aplicaciones necesarias.
+                </p>
+
+            </a>
+
+            <a href="actividad2.html" class="home-card">
+
+                <h3>Actividad 2</h3>
+
+                <p>
+                    Diseño de red,
+                    VLANs y configuración
+                    de OCS Inventory.
+                </p>
+
+            </a>
+
+            <a href="actividad3.html" class="home-card">
+
+                <h3>Actividad 3</h3>
+
+                <p>
+                    Montaje de cableado,
+                    conectores RJ45
+                    y pruebas con tester.
+                </p>
+
+            </a>
+
+            <a href="actividad4.html" class="home-card">
+
+                <h3>Actividad 4</h3>
+
+                <p>
+                    Configuración del
+                    servidor web Apache
+                    y despliegue inicial.
+                </p>
+
+            </a>
+
+            <a href="actividad5.html" class="home-card">
+
+                <h3>Actividad 5</h3>
+
+                <p>
+                    Configuración del servicio FTP
+                    y transferencia de archivos
+                    entre cliente y servidor.
+                </p>
+
+            </a>
+
+            <a href="actividad6.html" class="home-card">
+
+                <h3>Actividad 6</h3>
+
+                <p>
+                    Desarrollo final
+                    de la página web
+                    utilizando HTML, CSS y GitHub.
+                </p>
+
+            </a>
+
+        </div>
+
+        <!-- INFORMACIÓN DEL GRUPO -->
+
+        <div class="card">
+
+            <h2>Información del proyecto</h2>
+
+            <p>
+                Proyecto realizado por el grupo ASIR 2026
+                utilizando Ubuntu Server 24.04,
+                Apache2, Visual Studio Code y GitHub.
+            </p>
+
+            <p>
+                Integrantes del grupo:
+            </p>
+
+            <ul>
+
+                <li>Guillermo</li>
+
+                <li>Carlos Erasto</li>
+
+                <li>Jorge Joménez</li>
+
+            </ul>
+
+        </div>
+
     </main>
 
-    <footer>
-        <p>Grupo ASIR 2026</p>
-    </footer>
+    <!-- FOOTER -->
 
-    <script src="js/script.js"></script>
+    <footer>
+
+        <div class="footer-content">
+
+            <p>© CampusFP 2026 - Proyecto ASIR</p>
+
+            <img src="img/campusfp.png">
+
+        </div>
+
+    </footer>
 
 </body>
 
